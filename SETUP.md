@@ -77,7 +77,7 @@ That's the link you text to everybody. No login, no app, works on any phone.
 
 **To change anything later** — a time, a photo, a FAQ answer — edit `index.html` on GitHub directly (click the file, then the pencil icon) and commit. The live site updates in about a minute.
 
-**Making updates to the deployment.** If you ever paste a new version of the Apps Script, you must click **Deploy → Manage deployments → edit (pencil) → Version: New version → Deploy**. Otherwise the old code keeps running.
+**Making updates to the deployment.** If you ever paste a new version of the Apps Script, you must click **Deploy → Manage deployments → edit (pencil) → Version: New version → Deploy**. Otherwise the old code keeps running. 
 
 ---
 
