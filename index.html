@@ -1056,7 +1056,7 @@ section{position:relative;padding:var(--pad) 22px}
      The URL below is NOT the spreadsheet link — it's the web app link
      you get from Extensions > Apps Script > Deploy. It ends in /exec.
      ============================================================ */
-  var ENDPOINT = "";
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbw3TWII-id4rQzR2VAIKbttXX57-hxmMcPW1p5NDd79bEqMTBRYurvWhGG8pTT4ujbL/exec";
   /* ============================================================ */
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1360,6 +1360,24 @@ section{position:relative;padding:var(--pad) 22px}
       }, 520);
     });
   });
+
+  /* ---------- not connected yet? say so loudly ---------- */
+  if (!ENDPOINT){
+    var warnCss = "margin:0 0 22px;padding:13px 16px;border:1px dashed #A33;border-radius:3px;" +
+                  "background:rgba(170,51,51,.08);color:#8C2A2A;font-size:15px;line-height:1.45;text-align:left;";
+    var w1 = document.createElement("p");
+    w1.style.cssText = warnCss;
+    w1.innerHTML = "<strong>Not connected yet.</strong> Answers won't be saved anywhere until the Apps Script URL is added to ENDPOINT in index.html. See SETUP.md.";
+    form.parentNode.insertBefore(w1, form);
+
+    var lb = document.getElementById("listBtn");
+    if (lb){
+      var w2 = document.createElement("p");
+      w2.style.cssText = warnCss + "max-width:640px;margin:0 auto 22px;background:rgba(170,51,51,.14);color:#E8A0A0;border-color:#A33;";
+      w2.innerHTML = "<strong>Not connected yet.</strong> This list stays empty until the Apps Script URL is added to ENDPOINT in index.html.";
+      lb.parentNode.insertBefore(w2, lb.parentNode.firstChild);
+    }
+  }
 
   /* ---------- where answers go ---------- */
   function save(entry){
